@@ -2,7 +2,7 @@
   <div class="container nav-container">
     <a href="beranda.php" class="nav-logo"><?= SITE_NAME ?></a>
     <ul class="nav-menu" id="nav-menu">
-      <li><a href="beranda.php" class="nav-link <?= isActivePage('beranda') ?>">Beranda</a></li>
+      <li><a href="index.php" class="nav-link <?= isActivePage('beranda') ?>">Beranda</a></li>
       <li><a href="tentang.php" class="nav-link <?= isActivePage('tentang') ?>">Tentang</a></li>
       <li><a href="produk.php" class="nav-link <?= isActivePage('produk') ?>">Produk</a></li>
       <li><a href="testimoni.php" class="nav-link <?= isActivePage('testimoni') ?>">Testimoni</a></li>
