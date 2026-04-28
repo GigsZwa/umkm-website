@@ -1,0 +1,71 @@
+<%- include('partials/header', { pageTitle }) %>
+
+<%- include('partials/navbar') %>
+
+<main>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1 class="fade-in">Solusi Kebutuhan Anda, <span>Kualitas Terbaik</span></h1>
+      <p class="fade-in">Dapatkan produk unggulan UMKM lokal dengan harga bersahabat.</p>
+      <a href="/produk" class="btn btn-primary fade-in">Lihat Produk</a>
+    </div>
+  </section>
+
+  <!-- Promo -->
+  <section class="promo">
+    <div class="container">
+      <div class="promo-banner">
+        <span>🎉 Diskon <%= discount %> untuk Pembelian Pertama!</span>
+        <span>Kode: <strong><%= promoCode %></strong></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produk Unggulan (grid kecil, bisa link ke /produk) -->
+  <section class="products section-padding">
+    <div class="container">
+      <h2 class="section-title">Produk Unggulan</h2>
+      <div class="product-grid">
+        <% products.forEach(p => { %>
+        <div class="product-card fade-in">
+          <div class="product-img-wrapper">
+            <img src="<%= p.gambar %>" alt="<%= p.nama %>" loading="lazy">
+            <% if (p.best_seller) { %>
+              <span class="badge-best">Best Seller</span>
+            <% } %>
+          </div>
+          <div class="product-info">
+            <h3><%= p.nama %></h3>
+            <p class="price">Rp <%= p.harga.toLocaleString('id-ID') %></p>
+            <p class="desc"><%= p.deskripsi %></p>
+            <a href="https://wa.me/<%= whatsapp %>?text=Halo%2C%20saya%20tertarik%20dengan%20<%= encodeURIComponent(p.nama) %>" class="btn btn-wa" target="_blank">
+              Order via WhatsApp
+            </a>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="/produk" class="btn btn-primary">Lihat Semua Produk</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni Singkat -->
+  <section class="testimonials section-padding bg-light">
+    <div class="container">
+      <h2 class="section-title">Apa Kata Pelanggan</h2>
+      <div class="testimonial-grid">
+        <% testimonials.forEach(t => { %>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">"<%= t.pesan %>"</p>
+          <p class="testimonial-name">— <%= t.nama %></p>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,36 @@
+<%- include('partials/header', { pageTitle }) %>
+<%- include('partials/navbar') %>
+
+<main>
+  <section class="products section-padding">
+    <div class="container">
+      <h2 class="section-title">Semua Produk</h2>
+      <div class="product-grid">
+        <% if (products.length === 0) { %>
+          <p>Belum ada produk ditambahkan.</p>
+        <% } else { %>
+          <% products.forEach(p => { %>
+          <div class="product-card fade-in">
+            <div class="product-img-wrapper">
+              <img src="<%= p.gambar %>" alt="<%= p.nama %>" loading="lazy">
+              <% if (p.best_seller) { %>
+                <span class="badge-best">Best Seller</span>
+              <% } %>
+            </div>
+            <div class="product-info">
+              <h3><%= p.nama %></h3>
+              <p class="price">Rp <%= p.harga.toLocaleString('id-ID') %></p>
+              <p class="desc"><%= p.deskripsi %></p>
+              <a href="https://wa.me/<%= whatsapp %>?text=Halo%2C%20saya%20tertarik%20dengan%20<%= encodeURIComponent(p.nama) %>" class="btn btn-wa" target="_blank">
+                Order via WhatsApp
+              </a>
+            </div>
+          </div>
+          <% }) %>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

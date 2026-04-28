@@ -1,0 +1,35 @@
+<%- include('partials/header', { pageTitle }) %>
+<%- include('partials/navbar') %>
+
+<main>
+  <section class="contact section-padding bg-light">
+    <div class="container">
+      <h2 class="section-title">Hubungi Kami</h2>
+      <div class="contact-form-wrapper fade-in">
+        <% if (alertType === 'success') { %>
+          <div class="alert alert-success">Pesan berhasil dikirim! Kami akan menghubungi Anda segera.</div>
+        <% } else if (alertType === 'error') { %>
+          <div class="alert alert-error"><%= message %></div>
+        <% } %>
+
+        <form action="/kontak" method="POST" id="contactForm">
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Anda" required minlength="3">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email@contoh.com" required>
+          </div>
+          <div class="form-group">
+            <label for="pesan">Pesan</label>
+            <textarea id="pesan" name="pesan" rows="5" placeholder="Tulis pesan Anda..." required minlength="10"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

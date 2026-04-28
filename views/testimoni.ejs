@@ -1,0 +1,20 @@
+<%- include('partials/header', { pageTitle }) %>
+<%- include('partials/navbar') %>
+
+<main>
+  <section class="testimonials section-padding">
+    <div class="container">
+      <h2 class="section-title">Testimoni Pelanggan</h2>
+      <div class="testimonial-grid">
+        <% testimonials.forEach(t => { %>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">"<%= t.pesan %>"</p>
+          <p class="testimonial-name">— <%= t.nama %></p>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
