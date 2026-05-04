@@ -117,34 +117,6 @@ foreach ($products as $p) {
     </div>
   </section>
   
-  <!-- ═══ KATEGORI ═══ -->
-  <section id="kategori" class="kategori-section section-padding" style="padding-bottom:3rem;">
-    <div class="container">
-
-      <div class="section-header" style="margin-bottom:2.5rem;">
-        <span class="section-tag">Jelajahi Koleksi</span>
-        <h2 class="section-title">Kategori <em>Produk</em></h2>
-      </div>
-
-      <div class="kategori-grid">
-        <?php foreach ($kategoriList as $i => $kat):
-          $icon  = $kategoriIcon[$kat] ?? '📦';
-          $count = count(array_filter($products, fn($p) => ($p['kategori'] ?? 'Lainnya') === $kat));
-        ?>
-          <a href="produk.php?kategori=<?= urlencode($kat) ?>"
-            class="kategori-card fade-in"
-            style="animation-delay:<?= $i * 0.08 ?>s">
-            <div class="kategori-icon"><?= $icon ?></div>
-            <p class="kategori-name"><?= htmlspecialchars($kat) ?></p>
-            <p class="kategori-count"><?= $count ?> produk</p>
-          </a>
-        <?php endforeach; ?>
-      </div>
-
-    </div>
-  </section>
-
-
   <!-- ═══ PRODUK UNGGULAN ═══ -->
   <section id="produk" class="products-section section-padding" style="padding-top:2rem;">
     <div class="container">
@@ -240,5 +212,52 @@ foreach ($products as $p) {
 
 </main>
 
+<script>
+  // Salin kode promo ke clipboard
+  function copyPromo(btn) {
+    const code = btn.dataset.code;
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ Disalin!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  (function() {
+    const btns = document.querySelectorAll('.produk-filter-btn');
+    const cards = document.querySelectorAll('#productGrid .product-card');
+    const empty = document.getElementById('emptyState');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        let visible = 0;
+
+        cards.forEach(card => {
+          const match = filter === 'Semua' || card.dataset.kategori === filter;
+          if (match) {
+            card.style.display = '';
+            card.style.animation = 'none';
+            void card.offsetWidth; // reflow
+            card.style.animation = '';
+            card.style.animationDelay = (visible * 0.07) + 's';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        empty.style.display = visible === 0 ? 'flex' : 'none';
+      });
+    });
+  })();
+</script>
+
 <?php include 'partials/footer.php'; ?>
-<script src="assets/js/script.js"></script>

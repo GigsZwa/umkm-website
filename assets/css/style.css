@@ -831,7 +831,7 @@ a {
   background: var(--warm-white);
   border-bottom: 1px solid var(--border);
   padding: 1rem 0;
-  position: sticky;
+  position: fixed;
   top: 72px;
   z-index: 50;
   backdrop-filter: blur(8px);
@@ -2190,7 +2190,7 @@ a.contact-channel-card:hover .cc-arrow {
 
 /* ── Filter Bar ── */
 .filter-bar {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   background: #fff;
@@ -2327,8 +2327,8 @@ a.contact-channel-card:hover .cc-arrow {
   }
 }
 
-/* ── Filter bar ── */
-.filter-bar { position: sticky; top: 0; z-index: 100; }
+/* ── Filter bar ──----------------------------------------------------------------------------- */
+.filter-bar { position: relative; top: 0; z-index: 1; }
 .filter-bar-inner { display: flex; align-items: center; gap: .75rem; flex-wrap: nowrap; }
 .fb-divider { width: 1px; height: 24px; background: var(--color-border,#e0e0e0); flex-shrink: 0; }
 .filter-pills-wrap { display: flex; align-items: center; gap: .35rem; overflow-x: auto; flex: 1; scrollbar-width: none; padding: 2px 0; }

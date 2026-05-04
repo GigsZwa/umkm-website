@@ -71,9 +71,9 @@ $products = [
 
 // Data testimoni
 $testimonials = [
-    ['nama' => 'Sari W.',  'pesan' => 'Produknya berkualitas! Pengiriman cepat. Pasti beli lagi.'],
-    ['nama' => 'Rudi H.',  'pesan' => 'Pelayanan ramah dan harganya terjangkau. Recommended!'],
-    ['nama' => 'Dewi L.',  'pesan' => 'Batiknya cantik, sesuai gambar. Suka banget!'],
+    ['nama' => 'Amba N.',  'pesan' => 'Produknya berkualitas! Pengiriman cepat. Pasti beli lagi.'],
+    ['nama' => 'Rusdi N.',  'pesan' => 'Pelayanan ramah dan harganya terjangkau. Recommended!'],
+    ['nama' => 'Asep K.',  'pesan' => 'Batiknya cantik, sesuai gambar. Suka banget!'],
 ];
 
 // Fungsi helper untuk aktif menu
