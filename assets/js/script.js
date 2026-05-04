@@ -80,3 +80,219 @@ document.addEventListener('DOMContentLoaded', () => {
     appearOnScroll.observe(fader);
   });
 });
+
+// === PRODUK ===================================
+(function() {
+    const grid = document.getElementById('productGrid');
+    const searchInput = document.getElementById('searchInput');
+    const sortSelect = document.getElementById('sortSelect');
+    const filterBtns = document.querySelectorAll('.filter-pill:not(.kategori-pill)');
+    const kategoriTabs = document.querySelectorAll('.kategori-pill');
+    const resultCount = document.getElementById('resultCount');
+    const emptyFilter = document.getElementById('emptyFilter');
+
+    if (!grid) return;
+
+    // Ambil kategori dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    let activeKategori = urlParams.get('kategori') || 'all';
+    let activeBestFilter = 'all';
+
+    // Set kategori awal
+    kategoriTabs.forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.kategori === activeKategori);
+    });
+
+    function getCards() {
+      return Array.from(grid.querySelectorAll('.product-card'));
+    }
+
+    function applyFilters() {
+      const query = searchInput.value.toLowerCase().trim();
+      const sort = sortSelect.value;
+      let cards = getCards();
+
+      // SORT
+      cards.sort((a, b) => {
+        if (sort === 'harga-asc') return +a.dataset.harga - +b.dataset.harga;
+        if (sort === 'harga-desc') return +b.dataset.harga - +a.dataset.harga;
+        if (sort === 'nama-asc') return a.dataset.nama.localeCompare(b.dataset.nama);
+        return 0;
+      });
+      cards.forEach(c => grid.appendChild(c));
+
+      // FILTER
+      let visible = 0;
+      cards.forEach(card => {
+        const matchSearch = !query || card.dataset.nama.includes(query);
+        const matchBest = activeBestFilter === 'all' || (activeBestFilter === 'best' && card.dataset.bestseller === 'true');
+        const matchKategori = activeKategori === 'all' || card.dataset.kategori === activeKategori;
+
+        const show = matchSearch && matchBest && matchKategori;
+        card.style.display = show ? '' : 'none';
+
+        if (show) visible++;
+      });
+
+      // RESULT
+      resultCount.textContent = visible + ' produk ditemukan';
+      emptyFilter.style.display = visible === 0 ? 'flex' : 'none';
+      grid.style.display = visible === 0 ? 'none' : '';
+
+      // UPDATE URL
+      const newUrl = new URL(window.location.href);
+      if (activeKategori === 'all') {
+        newUrl.searchParams.delete('kategori');
+      } else {
+        newUrl.searchParams.set('kategori', activeKategori);
+      }
+      window.history.replaceState(null, '', newUrl.toString());
+
+      // AUTO RESET VISUAL (opsional tapi rapi)
+      if (
+        activeKategori === 'all' &&
+        activeBestFilter === 'all' &&
+        !searchInput.value &&
+        sortSelect.value === 'default'
+      ) {
+        kategoriTabs.forEach(t => t.classList.remove('active'));
+        kategoriTabs[0].classList.add('active');
+        filterBtns.forEach(b => b.classList.remove('active'));
+      }
+    }
+
+    // === KATEGORI TOGGLE ===
+    kategoriTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const isActive = tab.classList.contains('active');
+
+        kategoriTabs.forEach(t => t.classList.remove('active'));
+
+        if (isActive) {
+          activeKategori = 'all';
+          kategoriTabs[0].classList.add('active'); // balik ke semua
+        } else {
+          tab.classList.add('active');
+          activeKategori = tab.dataset.kategori;
+        }
+
+        applyFilters();
+      });
+    });
+
+    // === BEST SELLER TOGGLE ===
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isActive = btn.classList.contains('active');
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+
+        if (isActive) {
+          activeBestFilter = 'all';
+        } else {
+          btn.classList.add('active');
+          activeBestFilter = btn.dataset.filter;
+        }
+
+        applyFilters();
+      });
+    });
+
+    // === INPUT EVENTS ===
+    searchInput.addEventListener('input', applyFilters);
+    sortSelect.addEventListener('change', applyFilters);
+
+    // INIT
+    applyFilters();
+
+    // RESET MANUAL
+    window.resetFilter = function() {
+      searchInput.value = '';
+      sortSelect.value = 'default';
+
+      filterBtns.forEach(b => b.classList.remove('active'));
+      kategoriTabs.forEach(t => t.classList.remove('active'));
+
+      kategoriTabs[0].classList.add('active');
+
+      activeBestFilter = 'all';
+      activeKategori = 'all';
+
+      applyFilters();
+    };
+
+  })();
+
+  // === Index Page ===================================
+ // Salin kode promo ke clipboard
+  function copyPromo(btn) {
+    const code = btn.dataset.code;
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ Disalin!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  (function() {
+    const btns = document.querySelectorAll('.produk-filter-btn');
+    const cards = document.querySelectorAll('#productGrid .product-card');
+    const empty = document.getElementById('emptyState');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        let visible = 0;
+
+        cards.forEach(card => {
+          const match = filter === 'Semua' || card.dataset.kategori === filter;
+          if (match) {
+            card.style.display = '';
+            card.style.animation = 'none';
+            void card.offsetWidth; // reflow
+            card.style.animation = '';
+            card.style.animationDelay = (visible * 0.07) + 's';
+            visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        empty.style.display = visible === 0 ? 'flex' : 'none';
+      });
+    });
+  })();
+
+    // === Detail Porduk ===================================
+    // Tab switching
+document.querySelectorAll('.spec-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.spec-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.spec-tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Share
+function shareProduct() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: window.location.href
+    });
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      const btn = document.querySelector('.btn-share');
+      btn.innerHTML = '✓';
+      setTimeout(() => btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>`, 2000);
+    });
+  }
+}

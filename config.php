@@ -13,10 +13,15 @@ define('SVG_WA_ICON', '<svg width="15" height="15" viewBox="0 0 24 24" fill="whi
   <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.11 1.522 5.847L.057 23.854a.5.5 0 00.613.613l6.012-1.465A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.866 9.866 0 01-5.012-1.368l-.36-.213-3.724.975.993-3.63-.234-.373A9.836 9.836 0 012.118 12C2.118 6.526 6.526 2.118 12 2.118c5.474 0 9.882 4.408 9.882 9.882 0 5.474-4.408 9.882-9.882 9.882z"/>
 </svg>');
 
-// Data produk
+// ── Data produk ──
+// Kategori yang tersedia: 'Minuman', 'Fashion', 'Makanan', 'Kerajinan'
+// Tambah kategori baru cukup tulis di key 'kategori' produk baru,
+// lalu tambah ikonnya di $kategoriIcon (index.php & produk.php).
+
 $products = [
     [
         'nama'        => 'Kopi Gayo Premium',
+        'kategori'    => 'Minuman',
         'harga'       => 75000,
         'deskripsi'   => 'Biji kopi pilihan dari dataran tinggi Gayo, aroma khas.',
         'gambar'      => 'https://placehold.co/400x300/8B5A2B/FFF?text=Kopi+Gayo',
@@ -24,6 +29,7 @@ $products = [
     ],
     [
         'nama'        => 'Batik Tulis Solo',
+        'kategori'    => 'Fashion',
         'harga'       => 250000,
         'deskripsi'   => 'Kain batik tulis asli Solo, motif klasik elegan.',
         'gambar'      => 'https://placehold.co/400x300/800020/FFF?text=Batik+Solo',
@@ -31,6 +37,7 @@ $products = [
     ],
     [
         'nama'        => 'Kripik Singkong Balado',
+        'kategori'    => 'Makanan',
         'harga'       => 20000,
         'deskripsi'   => 'Renyah, pedas gurih, camilan favorit keluarga.',
         'gambar'      => 'https://placehold.co/400x300/D2691E/FFF?text=Kripik+Singkong',
@@ -38,6 +45,7 @@ $products = [
     ],
     [
         'nama'        => 'Sambal Bawang Premium',
+        'kategori'    => 'Makanan',
         'harga'       => 35000,
         'deskripsi'   => 'Sambal segar tanpa pengawet, pedas menggoda.',
         'gambar'      => 'https://placehold.co/400x300/B22222/FFF?text=Sambal+Bawang',
@@ -45,6 +53,7 @@ $products = [
     ],
     [
         'nama'        => 'Tas Rajut Handmade',
+        'kategori'    => 'Kerajinan',
         'harga'       => 120000,
         'deskripsi'   => 'Tas rajut cantik, cocok untuk gaya kasual.',
         'gambar'      => 'https://placehold.co/400x300/FF69B4/FFF?text=Tas+Rajut',
@@ -52,6 +61,7 @@ $products = [
     ],
     [
         'nama'        => 'Lilin Aromaterapi',
+        'kategori'    => 'Kerajinan',
         'harga'       => 45000,
         'deskripsi'   => 'Aroma menenangkan dari bahan alami, tahan lama.',
         'gambar'      => 'https://placehold.co/400x300/9370DB/FFF?text=Lilin+Aroma',
