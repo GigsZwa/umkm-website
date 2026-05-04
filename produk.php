@@ -146,13 +146,6 @@ $bestSellerCount = count(array_filter($products, fn($p) => $p['best_seller']));
                         <?php endforeach; ?>
                       </ul>
                     <?php endif; ?>
-                    <div class="phd-actions">
-                      <a href="detail.php?id=<?= $slug ?>" class="phd-btn-detail">Lihat Detail</a>
-                      <a href="https://wa.me/<?= WHATSAPP_NUMBER ?>?text=Halo%2C%20saya%20tertarik%20dengan%20<?= urlencode($p['nama']) ?>"
-                        class="phd-btn-wa" target="_blank" rel="noopener">
-                        <?= SVG_WA_ICON ?> Order
-                      </a>
-                    </div>
                   </div>
                 </div>
               </div>
