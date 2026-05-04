@@ -59,7 +59,7 @@ foreach ($products as $p) {
       <div class="decor-circle" style="width:320px;height:320px;top:-80px;right:-80px;"></div>
       <div class="decor-circle" style="width:180px;height:180px;bottom:60px;right:20px;"></div>
       <div class="hero-img-frame">
-        <img src="assets/img/umkm.jpg" alt="Produk Unggulan" loading="lazy">
+        <img src="assets/img/apit.png" alt="Produk Unggulan" loading="lazy">
         <div class="promo-pill">
           <div class="promo-pill-label">Promo Perdana</div>
           <div class="promo-pill-discount">20% OFF</div>
