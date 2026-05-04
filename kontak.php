@@ -47,42 +47,53 @@ if (isset($_GET['status'])) {
 
           <div class="contact-channels">
 
-            <a href="https://wa.me/<?= defined('NOMOR_WA') ? NOMOR_WA : '' ?>" target="_blank" rel="noopener" class="contact-channel-card">
+            <a href="https://wa.me/<?= defined('WHATSAPP_NUMBER') ? WHATSAPP_NUMBER : '' ?>" target="_blank" rel="noopener" class="contact-channel-card">
               <div class="cc-icon cc-icon--wa">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.532 5.845L.057 23.882l6.191-1.624A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.373l-.359-.214-3.722.976.994-3.627-.235-.373A9.818 9.818 0 012.182 12C2.182 6.577 6.577 2.182 12 2.182S21.818 6.577 21.818 12 17.423 21.818 12 21.818z"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.2₁₃ 3.074 .₁₄₉ .₁₉₈ ₂₀₉₆ ₃.₂ ₅.₀₇₇ ₄.₄₈₇ .₇₀₉ .₃₀₆ ₁.₂₆₂ .₄₈₉ ₁.₆₉₄ .₆₂伍 .₇₁₂ .₂₂柒 ₁.³⁶ .₁⁹⁵ ₁.⁸⁷¹ .¹¹⁸ .⁵⁷¹ -." width="²²" height="²²">
+                    <path d="M₁₇." />
                 </svg>
               </div>
               <div class="cc-body">
                 <p class="cc-label">WhatsApp</p>
                 <p class="cc-value">Chat langsung dengan kami</p>
               </div>
-              <svg class="cc-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg class="cc-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
 
             <?php if (defined('EMAIL_KONTAK')): ?>
-            <a href="mailto:<?= EMAIL_KONTAK ?>" class="contact-channel-card">
-              <div class="cc-icon cc-icon--email">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </div>
-              <div class="cc-body">
-                <p class="cc-label">Email</p>
-                <p class="cc-value"><?= EMAIL_KONTAK ?></p>
-              </div>
-              <svg class="cc-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+              <a href="mailto:<?= EMAIL_KONTAK ?>" class="contact-channel-card">
+                <div class="cc-icon cc-icon--email">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div class="cc-body">
+                  <p class="cc-label">Email</p>
+                  <p class="cc-value"><?= EMAIL_KONTAK ?></p>
+                </div>
+                <svg class="cc-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
             <?php endif; ?>
 
             <?php if (defined('ALAMAT_TOKO')): ?>
-            <div class="contact-channel-card contact-channel-card--static">
-              <div class="cc-icon cc-icon--loc">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="contact-channel-card contact-channel-card--static">
+                <div class="cc-icon cc-icon--loc">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div class="cc-body">
+                  <p class="cc-label">Lokasi</p>
+                  <p class="cc-value"><?= htmlspecialchars(ALAMAT_TOKO) ?></p>
+                </div>
               </div>
-              <div class="cc-body">
-                <p class="cc-label">Lokasi</p>
-                <p class="cc-value"><?= htmlspecialchars(ALAMAT_TOKO) ?></p>
-              </div>
-            </div>
             <?php endif; ?>
 
           </div>
@@ -108,12 +119,19 @@ if (isset($_GET['status'])) {
           <!-- Alert notifikasi -->
           <?php if ($alertType === 'success'): ?>
             <div class="contact-alert contact-alert--success">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
               <span><?= $message ?></span>
             </div>
           <?php elseif ($alertType === 'error'): ?>
             <div class="contact-alert contact-alert--error">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
               <span><?= $message ?></span>
             </div>
           <?php endif; ?>
@@ -137,8 +155,7 @@ if (isset($_GET['status'])) {
                   placeholder="Contoh: Siti Rahma"
                   required
                   minlength="3"
-                  autocomplete="name"
-                >
+                  autocomplete="name">
               </div>
 
               <div class="cf-group">
@@ -150,8 +167,7 @@ if (isset($_GET['status'])) {
                   name="email"
                   placeholder="email@contoh.com"
                   required
-                  autocomplete="email"
-                >
+                  autocomplete="email">
               </div>
 
               <div class="cf-group cf-group--full">
@@ -163,14 +179,16 @@ if (isset($_GET['status'])) {
                   rows="5"
                   placeholder="Ceritakan apa yang ingin Anda tanyakan atau sampaikan..."
                   required
-                  minlength="10"
-                ></textarea>
+                  minlength="10"></textarea>
               </div>
 
             </div>
 
             <button type="submit" class="cf-submit">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
               Kirim Pesan
             </button>
 

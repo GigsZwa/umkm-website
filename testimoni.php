@@ -101,7 +101,7 @@ include 'partials/navbar.php';
           <p class="cta-sub">Ceritakan pengalamanmu — ulasanmu berarti banyak untuk kami.</p>
         </div>
         <a
-          href="https://wa.me/628211327189?text=Halo+TokoRasa%2C+saya+ingin+berbagi+testimoni!"
+          href="https://wa.me/<?= WHATSAPP_NUMBER ?>?text=Halo+TokoRasa%2C+saya+ingin+berbagi+testimoni!"
           target="_blank"
           rel="noopener noreferrer"
           class="btn-wa"

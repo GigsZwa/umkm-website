@@ -618,6 +618,7 @@ a {
 .footer-logo {
   font-family: var(--font-display);
   font-size: 1.3rem;
+  color: #ffffff;
 }
 
 .footer-logo span {

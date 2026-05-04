@@ -3,7 +3,7 @@
 
 define('SITE_NAME',        'Berkah Jaya');
 define('SITE_DESC',        'UMKM terpercaya menyediakan produk berkualitas dan pelayanan ramah.');
-define('WHATSAPP_NUMBER',  '6281234567890'); // tanpa +
+define('WHATSAPP_NUMBER',  '628211327189'); // tanpa +
 define('MESSAGES_FILE',    __DIR__ . '/data/messages.json');
 define('PROMO_CODE',       'UMKM20');
 
