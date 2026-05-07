@@ -60,11 +60,6 @@ foreach ($products as $p) {
       <div class="decor-circle" style="width:180px;height:180px;bottom:60px;right:20px;"></div>
       <div class="hero-img-frame">
         <img src="assets/img/apit.png" alt="Produk Unggulan" loading="lazy">
-        <div class="promo-pill">
-          <div class="promo-pill-label">Promo Perdana</div>
-          <div class="promo-pill-discount">20% OFF</div>
-          <div class="promo-pill-code"><?= PROMO_CODE ?></div>
-        </div>
       </div>
     </div>
   </section>
